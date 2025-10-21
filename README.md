@@ -8,7 +8,7 @@ This repository showcases two distinct HTML and CSS projects, focusing on fundam
 
 This project is a classic newspaper-style layout built entirely with **HTML and vanilla CSS**, demonstrating responsive design principles using **Flexbox and CSS Grid** and adherence to a clean, professional aesthetic.
 
-### 💻 Code (`web-lab-1.html`)
+### 💻 Code (`index.html`) - NEW YORK TIMES
 
 This file contains the complete structure and styling for the newspaper layout.
 
