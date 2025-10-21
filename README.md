@@ -1,5 +1,18 @@
-# web-lab-1
-👾👾**html css new york home page design**👾👾
+# 🌐 Web Development Lab: HTML & CSS Projects
+
+This repository showcases two distinct HTML and CSS projects, focusing on fundamental web design principles, layout techniques, and core element properties.
+
+---
+
+## 1. Project: New York Times-Style Home Page Design
+
+This project is a classic newspaper-style layout built entirely with **HTML and vanilla CSS**, demonstrating responsive design principles using **Flexbox and CSS Grid** and adherence to a clean, professional aesthetic.
+
+### 💻 Code (`web-lab-1.html`)
+
+This file contains the complete structure and styling for the newspaper layout.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +27,7 @@
             max-width: 1280px;
             padding: 0 16px;
         }
+
         .nyt-logo {
             font-family: Georgia, 'Times New Roman', serif;
             font-size: 2.5rem;
@@ -39,21 +53,22 @@
             cursor: pointer;
         }
         p.body-text {
-            color: #4b5563; 
-            font-size: 0.875rem; 
+            color: #4b5563; /* Gray-700 */
+            font-size: 0.875rem; /* Equivalent to text-sm */
             margin-bottom: 0.5rem;
         }
         .meta-text {
-            font-size: 0.75rem;
-            color: #6b7280; 
+            font-size: 0.75rem; /* Equivalent to text-xs */
+            color: #6b7280; /* Gray-500 */
             text-transform: uppercase;
         }
         a {
             text-decoration: none;
             color: inherit;
         }
+
         .utility-bar {
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb; /* Gray-200 */
             padding: 4px 0;
             font-size: 0.75rem;
         }
@@ -100,6 +115,8 @@
             color: #10b981;
             font-weight: 500;
         }
+
+
         header {
             padding: 16px 0;
             border-bottom: 1px solid #d1d5db;
@@ -128,6 +145,7 @@
         .main-nav li:hover {
             background-color: #f9fafb;
         }
+
         .main-content-grid {
             display: grid;
             gap: 24px; 
@@ -175,6 +193,7 @@
             justify-content: center;
             padding: 16px;
         }
+
         @media (min-width: 768px) {
             .secondary-links .mobile-hide {
                 display: none;
@@ -187,20 +206,25 @@
                 gap: 16px;
             }
         }
+
         @media (min-width: 1024px) {
             /* Main Layout Grid */
             .main-content-grid {
                 grid-template-columns: 1fr 2fr 1fr;
                 padding: 24px 0;
             }
+
             .left-rail {
                 border-right: 1px solid #e5e7eb;
                 padding-right: 24px;
             }
+
             .featured-image {
                 padding-left: 8px;
                 padding-right: 8px;
             }
+
+            /* Right Rail Styling */
             .right-rail-placeholder {
                 display: block;
                 border-left: 1px solid #e5e7eb;
@@ -218,6 +242,7 @@
             .right-rail-bottom .placeholder-box {
                 height: 160px;
             }
+
             .bottom-left-articles {
                 grid-template-columns: 1fr 1fr;
             }
@@ -233,103 +258,31 @@
             vertical-align: middle;
         }
     </style>
+
 </head>
 <body>
     <div class="utility-bar">
         <div class="utility-content">
-            <div class="date-info">
-                <p class="meta-text" style="color:#1f2937;">Sunday, October 19, 2025</p>
-                <p class="meta-text" style="color:#1f2937;" class="mobile-hide">Today's Paper</p>
             </div>
-            <div class="secondary-links">
-                <span>U.S.</span>
-                <span>International</span>
-                <span>Canada</span>
-                <span>Español</span>
-                <span class="mobile-hide">中文</span>
-            </div>
-            <div class="actions" style="display: flex; align-items: center; gap: 16px;">
-                <a href="#" class="subscribe">SUBSCRIBE FOR $0.25/WEEK</a>
-                <a href="#" class="login">LOG IN</a>
-                <p class="stock-ticker mobile-hide">Nasdaq <span class="gain">+0.52%</span></p>
-            </div>
-        </div>
     </div>
     <header>
         <div class="logo-container">
             <h1 class="nyt-logo">The New York Times</h1>
         </div>
         <nav class="main-nav mobile-hide">
-            <ul>
-                <li><a href="#">U.S.</a></li>
-                <li><a href="#">World</a></li>
-                <li><a href="#">Business</a></li>
-                <li><a href="#">Arts</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Opinion</a></li>
-                <li><a href="#">Audio</a></li>
-                <li><a href="#">Games</a></li>
-                <li><a href="#">Cooking</a></li>
-                <li><a href="#">Wirecutter</a></li>
-                <li><a href="#">The Athletic</a></li>
-                <li><a href="#">
-                    <svg class="icon-more" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" /></svg>
-                </a></li>
-            </ul>
-        </nav>
+            </nav>
     </header>
     <main class="main-content-grid">
         <section class="left-rail">
-            <article>
-                <h2>Shutdown Fight Reopens Debate in G.O.P. Over Health Care</h2>
-                <p class="body-text">
-                    The showdown has highlighted Republicans’ failure to produce an alternative to Obamacare, which many assail but concede is too politically risky to undo.
-                </p>
-                <p class="meta-text">6 MIN READ</p>
-            </article>
-            <hr>
-            <article>
-                <h2>Wealthy Americans Are Spending. People With Less Are Struggling.</h2>
-                <p class="body-text">
-                    Data show a resilient economy. But that largely reflects spending by the rich, while others pull back amid high prices and a weakening labor market.
-                </p>
-                <p class="meta-text">6 MIN READ</p>
-            </article>
-            <hr>
-            <div class="bottom-left-articles">
-                <article>
-                    <h3>Vance Flexes Marines’ Might as Mass Protests Against Trump’s Agenda Take Place</h3>
-                    <p class="meta-text">4 MIN READ</p>
-                </article>
-                <article class="article-divider">
-                    <h3>Protesters Denounce Trump at ‘No Kings’ Rallies Across the Country</h3>
-                    <p class="meta-text">6 MIN READ</p>
-                </article>
-            </div>
-        </section>
+            </section>
         <section class="featured-image">
             <figure>
-                <img src="https://placehold.co/700x500/2C3E50/FFFFFF?text=Featured+Article+Image"
-                     alt="Group of political figures at a podium"
-                     onerror="this.onerror=null;this.src='https://placehold.co/700x500/000/FFFFFF?text=Image+Unavailable';">
-                <figcaption>
-                    Tierney L. Cross/The New York Times
-                </figcaption>
+                <img src="[https://placehold.co/700x500/2C3E50/FFFFFF?text=Featured+Article+Image](https://placehold.co/700x500/2C3E50/FFFFFF?text=Featured+Article+Image)" alt="Group of political figures at a podium">
+                <figcaption>Tierney L. Cross/The New York Times</figcaption>
             </figure>
         </section>
         <section class="right-rail-placeholder">
-            <div class="placeholder-box right-rail-top">
-                <p class="meta-text">Widget Placeholder</p>
-            </div>
-            <div class="right-rail-bottom">
-                <div class="placeholder-box">
-                    <p class="meta-text">Ad Slot 1</p>
-                </div>
-                <div class="placeholder-box">
-                    <p class="meta-text">Ad Slot 2</p>
-                </div>
-            </div>
-        </section>
+            </section>
     </main>
 </body>
 </html>
@@ -337,8 +290,8 @@
 
 
 
-🤖**html work in class**🤖
 
+💻 Code (work-in-class.html)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -354,6 +307,7 @@
             padding: 0;
             line-height: 1.6;
         }
+
         #main-header {
             background-color: #007bff;
             color: white;
@@ -367,11 +321,13 @@
             font-size: 2.2rem;
             font-weight: 300;
         }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
+
         .section {
             background-color: white;
             padding: 30px;
@@ -387,6 +343,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
+
         .block-demo {
             background-color: #ffcc00;
             color: #333;
@@ -397,6 +354,7 @@
         .block-demo-container {
             margin-bottom: 30px;
         }
+
         .inline-demo {
             background-color: #28a745;
             color: white;
@@ -404,6 +362,7 @@
             margin-right: 10px;
             border-radius: 4px;
         }
+
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -441,6 +400,7 @@
         .list-container ul li {
             list-style-type: square;
         }
+        
         @media (max-width: 600px) {
             #main-header h1 {
                 font-size: 1.8rem;
@@ -469,17 +429,17 @@
         <div class="section">
             <h3>Block & Inline Elements Demo (DIV and SPAN)</h3>
             <div class="block-demo-container">
-                <p>A DIV is a **Block** element. It always starts on a new line and takes up the full width available.</p>
+                <p>A DIV is a **Block** element...</p>
                 <div class="block-demo">
-                    This is a DIV with the class ".block-demo". Notice how it forces a line break above and below it.
+                    This is a DIV with the class ".block-demo".
                 </div>
                 <div class="block-demo">
-                    This is a second DIV. Even though there is space, it appears on a new line.
+                    This is a second DIV.
                 </div>
             </div>
-            <p>A SPAN is an **Inline** element. It only takes up as much width as necessary and does not force line breaks.</p>
+            <p>A SPAN is an **Inline** element...</p>
             <span class="inline-demo">Inline SPAN 1</span>
-            <span class="inline-demo">Inline SPAN 2: Notice they sit on the same line if there's enough horizontal space.</span>
+            <span class="inline-demo">Inline SPAN 2: Notice they sit on the same line...</span>
             <span class="inline-demo">Inline SPAN 3</span>
         </div>
         <div class="section">
@@ -493,27 +453,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Unordered List Item</td>
-                        <td>&lt;li&gt;</td>
-                        <td>Inline</td>
-                    </tr>
-                    <tr>
-                        <td>Table Data Cell</td>
-                        <td>&lt;td&gt;</td>
-                        <td>Table Cell</td>
-                    </tr>
-                    <tr>
-                        <td>Section Grouping</td>
-                        <td>&lt;div&gt;</td>
-                        <td>Block</td>
-                    </tr>
-                    <tr>
-                        <td>Inline Grouping</td>
-                        <td>&lt;span&gt;</td>
-                        <td>Inline</td>
-                    </tr>
-                </tbody>
+                    <tr><td>Unordered List Item</td><td>&lt;li&gt;</td><td>Inline</td></tr>
+                    </tbody>
             </table>
         </div>
         <div class="section">
@@ -522,24 +463,15 @@
                 <div>
                     <h4>Unordered List (UL)</h4>
                     <ul>
-                        <li>Learning HTML Structure</li>
-                        <li>Applying CSS Stylesheet</li>
-                        <li>Using the ID Selector</li>
-                        <li>Using the Class Selector</li>
-                    </ul>
+                        </ul>
                 </div>
                 <div>
                     <h4>Ordered List (OL)</h4>
                     <ol>
-                        <li>Define HTML Head & Body</li>
-                        <li>Add DIVs and other elements</li>
-                        <li>Style elements with Classes</li>
-                        <li>Ensure site is responsive</li>
-                    </ol>
+                        </ol>
                 </div>
             </div>
         </div>
     </div>
 </body>
 </html>
-*/
