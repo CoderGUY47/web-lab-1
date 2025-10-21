@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #1f2937; /* Dark Gray/Black */
+            margin: 0 auto;
+            max-width: 1280px;
+            padding: 0 16px;
+        }
+
+        .nyt-logo {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        h2 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.5rem; /* Equivalent to text-2xl */
+            font-weight: bold;
+            line-height: 1.25;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+        h2:hover, h3:hover {
+            text-decoration: underline;
+        }
+        h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.25;
+            cursor: pointer;
+        }
+        p.body-text {
+            color: #4b5563; /* Gray-700 */
+            font-size: 0.875rem; /* Equivalent to text-sm */
+            margin-bottom: 0.5rem;
+        }
+        .meta-text {
+            font-size: 0.75rem; /* Equivalent to text-xs */
+            color: #6b7280; /* Gray-500 */
+            text-transform: uppercase;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .utility-bar {
+            border-bottom: 1px solid #e5e7eb; /* Gray-200 */
+            padding: 4px 0;
+            font-size: 0.75rem;
+        }
+        .utility-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .secondary-links span {
+            color: #6b7280;
+        }
+        .secondary-links span:not(:last-child)::after {
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 0.8rem;
+            background-color: #e5e7eb;
+            margin: 0 8px;
+            vertical-align: middle;
+        }
+        .actions a {
+            padding: 4px 8px;
+            border: 1px solid #1f2937;
+            transition: background-color 0.15s;
+        }
+        .actions a.subscribe {
+            font-size: 0.7rem;
+        }
+        .actions a.login {
+            background-color: #1f2937;
+            color: white;
+            padding: 4px 12px;
+        }
+        .actions a:hover {
+            background-color: #f3f4f6;
+        }
+        .actions a.login:hover {
+            background-color: #374151;
+        }
+        .stock-ticker {
+            color: #6b7280;
+        }
+        .stock-ticker .gain {
+            color: #10b981;
+            font-weight: 500;
+        }
+
+
+        header {
+            padding: 16px 0;
+            border-bottom: 1px solid #d1d5db;
+        }
+        .logo-container {
+            text-align: center;
+        }
+        .main-nav {
+            margin-top: 16px;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+        }
+        .main-nav li {
+            padding: 8px 12px;
+            border-right: 1px solid #f3f4f6;
+        }
+        .main-nav li:hover {
+            background-color: #f9fafb;
+        }
+
+        .main-content-grid {
+            display: grid;
+            gap: 24px; 
+            padding: 24px 0;
+        }
+        .left-rail article {
+            margin-bottom: 32px;
+        }
+        .left-rail hr {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 16px 0;
+        }
+        .bottom-left-articles {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            padding-top: 8px;
+        }
+        .bottom-left-articles .article-divider {
+            border-left: none;
+            padding-left: 0;
+        }
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .featured-image figcaption {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+        .right-rail-placeholder {
+            display: none; 
+        }
+        .placeholder-box {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .secondary-links .mobile-hide {
+                display: none;
+            }
+            .utility-content {
+                padding: 0 16px;
+            }
+            .utility-content > div {
+                display: flex;
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /* Main Layout Grid */
+            .main-content-grid {
+                grid-template-columns: 1fr 2fr 1fr;
+                padding: 24px 0;
+            }
+
+            .left-rail {
+                border-right: 1px solid #e5e7eb;
+                padding-right: 24px;
+            }
+
+            .featured-image {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+
+            /* Right Rail Styling */
+            .right-rail-placeholder {
+                display: block;
+                border-left: 1px solid #e5e7eb;
+                padding-left: 24px;
+            }
+            .right-rail-top {
+                height: 192px; 
+                margin-bottom: 24px;
+            }
+            .right-rail-bottom {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .right-rail-bottom .placeholder-box {
+                height: 160px;
+            }
+
+            .bottom-left-articles {
+                grid-template-columns: 1fr 1fr;
+            }
+            .bottom-left-articles .article-divider {
+                border-left: 1px solid #e5e7eb;
+                padding-left: 16px;
+            }
+        }
+        .icon-more {
+            width: 16px;
+            height: 16px;
+            stroke-width: 1.5;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="utility-bar">
+        <div class="utility-content">
+            <div class="date-info">
+                <p class="meta-text" style="color:#1f2937;">Sunday, October 19, 2025</p>
+                <p class="meta-text" style="color:#1f2937;" class="mobile-hide">Today's Paper</p>
+            </div>
+            <div class="secondary-links">
+                <span>U.S.</span>
+                <span>International</span>
+                <span>Canada</span>
+                <span>Español</span>
+                <span class="mobile-hide">中文</span>
+            </div>
+            <div class="actions" style="display: flex; align-items: center; gap: 16px;">
+                <a href="#" class="subscribe">SUBSCRIBE FOR $0.25/WEEK</a>
+                <a href="#" class="login">LOG IN</a>
+                <p class="stock-ticker mobile-hide">Nasdaq <span class="gain">+0.52%</span></p>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="logo-container">
+            <h1 class="nyt-logo">The New York Times</h1>
+        </div>
+        <nav class="main-nav mobile-hide">
+            <ul>
+                <li><a href="#">U.S.</a></li>
+                <li><a href="#">World</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Arts</a></li>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Opinion</a></li>
+                <li><a href="#">Audio</a></li>
+                <li><a href="#">Games</a></li>
+                <li><a href="#">Cooking</a></li>
+                <li><a href="#">Wirecutter</a></li>
+                <li><a href="#">The Athletic</a></li>
+                <li><a href="#">
+                    <svg class="icon-more" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z" /></svg>
+                </a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content-grid">
+        <section class="left-rail">
+            <article>
+                <h2>Shutdown Fight Reopens Debate in G.O.P. Over Health Care</h2>
+                <p class="body-text">
+                    The showdown has highlighted Republicans’ failure to produce an alternative to Obamacare, which many assail but concede is too politically risky to undo.
+                </p>
+                <p class="meta-text">6 MIN READ</p>
+            </article>
+            <hr>
+            <article>
+                <h2>Wealthy Americans Are Spending. People With Less Are Struggling.</h2>
+                <p class="body-text">
+                    Data show a resilient economy. But that largely reflects spending by the rich, while others pull back amid high prices and a weakening labor market.
+                </p>
+                <p class="meta-text">6 MIN READ</p>
+            </article>
+            <hr>
+            <div class="bottom-left-articles">
+                <article>
+                    <h3>Vance Flexes Marines’ Might as Mass Protests Against Trump’s Agenda Take Place</h3>
+                    <p class="meta-text">4 MIN READ</p>
+                </article>
+                <article class="article-divider">
+                    <h3>Protesters Denounce Trump at ‘No Kings’ Rallies Across the Country</h3>
+                    <p class="meta-text">6 MIN READ</p>
+                </article>
+            </div>
+
+        </section>
+        <section class="featured-image">
+            <figure>
+                <img src="https://placehold.co/700x500/2C3E50/FFFFFF?text=Featured+Article+Image"
+                     alt="Group of political figures at a podium"
+                     onerror="this.onerror=null;this.src='https://placehold.co/700x500/000/FFFFFF?text=Image+Unavailable';">
+                <figcaption>
+                    Tierney L. Cross/The New York Times
+                </figcaption>
+            </figure>
+        </section>
+        <section class="right-rail-placeholder">
+            <div class="placeholder-box right-rail-top">
+                <p class="meta-text">Widget Placeholder</p>
+            </div>
+            <div class="right-rail-bottom">
+                <div class="placeholder-box">
+                    <p class="meta-text">Ad Slot 1</p>
+                </div>
+                <div class="placeholder-box">
+                    <p class="meta-text">Ad Slot 2</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
